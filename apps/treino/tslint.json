@@ -1,0 +1,17 @@
+{
+  "extends": "../../tslint.json",
+  "rules": {
+    "directive-selector": [
+      true,
+      "attribute",
+      "pactoSubdividingPlatform",
+      "camelCase"
+    ],
+    "component-selector": [
+      true,
+      "element",
+      "pacto-subdividing-platform",
+      "kebab-case"
+    ]
+  }
+}
