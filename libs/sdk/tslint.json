@@ -4,13 +4,13 @@
     "directive-selector": [
       true,
       "attribute",
-      "treino",
+      "sdk",
       "camelCase"
     ],
     "component-selector": [
       true,
       "element",
-      "treino",
+      "sdk",
       "kebab-case"
     ]
   }

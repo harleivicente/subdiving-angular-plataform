@@ -10,7 +10,7 @@
       },
       "root": "apps/treino",
       "sourceRoot": "apps/treino/src",
-      "prefix": "pacto-subdividing-platform",
+      "prefix": "treino",
       "architect": {
         "build": {
           "builder": "@angular-devkit/build-angular:browser",
@@ -118,6 +118,37 @@
             "tsConfig": ["apps/treino-e2e/tsconfig.e2e.json"],
             "exclude": ["**/node_modules/**", "!apps/treino-e2e/**"]
           }
+        }
+      }
+    },
+    "sdk": {
+      "projectType": "library",
+      "root": "libs/sdk",
+      "sourceRoot": "libs/sdk/src",
+      "prefix": "sdk",
+      "architect": {
+        "lint": {
+          "builder": "@angular-devkit/build-angular:tslint",
+          "options": {
+            "tsConfig": [
+              "libs/sdk/tsconfig.lib.json",
+              "libs/sdk/tsconfig.spec.json"
+            ],
+            "exclude": ["**/node_modules/**", "!libs/sdk/**"]
+          }
+        },
+        "test": {
+          "builder": "@nrwl/jest:jest",
+          "options": {
+            "jestConfig": "libs/sdk/jest.config.js",
+            "tsConfig": "libs/sdk/tsconfig.spec.json",
+            "setupFile": "libs/sdk/src/test-setup.ts"
+          }
+        }
+      },
+      "schematics": {
+        "@nrwl/angular:component": {
+          "styleext": "scss"
         }
       }
     }

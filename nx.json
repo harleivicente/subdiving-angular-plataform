@@ -17,6 +17,9 @@
     "treino-e2e": {
       "tags": [],
       "implicitDependencies": ["treino"]
+    },
+    "sdk": {
+      "tags": []
     }
   }
 }
