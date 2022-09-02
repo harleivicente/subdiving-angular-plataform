@@ -14,23 +14,31 @@ export const plataformModules: PlataformModule[] = [
     {
         applicationId: PLATAFORM_APPLICATION_ID.TREINO_APP,
         id: PLATAFORM_MODULE_ID.TREINO,
-        url: 'treino'
+        url: 'treino',
+        initials: 'Tr',
+        themeColor: '#123'
     },
     {
         applicationId: PLATAFORM_APPLICATION_ID.TREINO_APP,
         id: PLATAFORM_MODULE_ID.CROSSFIT,
-        url: 'crossfit'
+        url: 'crossfit',
+        initials: 'Cr',
+        themeColor: '#665'
     },
 
     //  Adm application
     {
         applicationId: PLATAFORM_APPLICATION_ID.ADM_APP,
         id: PLATAFORM_MODULE_ID.ADM,
-        url: 'adm'
+        url: 'adm',
+        initials: 'Ad',
+        themeColor: '#456'
     },
     {
         applicationId: PLATAFORM_APPLICATION_ID.ADM_APP,
         id: PLATAFORM_MODULE_ID.PLANOS,
-        url: 'planos'
+        url: 'planos',
+        initials: 'Pl',
+        themeColor: '816'
     },
 ];

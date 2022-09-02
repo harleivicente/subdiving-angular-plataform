@@ -9,6 +9,14 @@
 
     <div class="taskbar">
         
+        <a 
+            [routerLink]="navigationService.getModuleUrl(item.id)"
+            *ngFor="let item of plataformModules"
+            [ngStyle]="{ backgroundColor: item.themeColor }" 
+        class="module">
+            {{ item.initials }}
+        </a>
+
     </div>
     
     <div class="context-menu">

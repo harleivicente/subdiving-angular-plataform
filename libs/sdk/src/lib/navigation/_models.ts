@@ -24,6 +24,8 @@ export interface PlataformModule {
     id: PLATAFORM_MODULE_ID;
     applicationId: PLATAFORM_APPLICATION_ID;
     url: string;
+    initials: string;
+    themeColor: string;
 }
 
 export interface PlataformRoute {

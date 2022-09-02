@@ -26,11 +26,33 @@
     flex-basis: calc(100vh - 50px);
 }
 
+// Taskbar
+//
 .taskbar {
     background-color: #333;
     flex-shrink: 0;
     width: 50px;
 }
+
+.module {
+    display: block;
+    width: 40px;
+    height: 40px;
+    color: #fff;
+    border-radius: 20px;
+    line-height: 40px;
+    text-align: center;
+    margin-bottom: 10px;
+    cursor: pointer;
+    border: 1px solid rgb(28, 28, 28);
+
+    &:hover {
+        filter: brightness(1.4);
+    }
+}
+
+
+
 
 .context-menu {
     background-color: #444;
