@@ -8,12 +8,12 @@
 <div class="body-container">
 
     <div class="taskbar">
-        
         <a 
-            [routerLink]="navigationService.getModuleUrl(item.id)"
+            [sdkModuleRouter]="item.id"
             *ngFor="let item of plataformModules"
             [ngStyle]="{ backgroundColor: item.themeColor }" 
-        class="module">
+            class="module"
+        >
             {{ item.initials }}
         </a>
 
