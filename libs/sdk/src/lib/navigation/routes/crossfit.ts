@@ -3,8 +3,8 @@ import { PlataformRoute } from "../_models";
 
 
 export enum CROSSFIT_MODULE_ROUTE_ID {
-    LISTA_WOD,
-    CRIAR_WOD
+    LISTA_WOD = 'LISTA_WOD',
+    CRIAR_WOD = 'CRIAR_WOD'
 }
 
 const routes: Omit<PlataformRoute, 'moduleId'>[] = [

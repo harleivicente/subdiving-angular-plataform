@@ -3,8 +3,8 @@ import { PlataformRoute } from "../_models";
 
 
 export enum TREINO_MODULE_ROUTE_ID {
-    LISTA_FICHAS_TREINO,
-    CRIAR_FICHA_TREINO
+    LISTA_FICHAS_TREINO = 'LISTA_FICHAS_TREINO',
+    CRIAR_FICHA_TREINO = 'CRIAR_FICHA_TREINO'
 }
 
 const routes: Omit<PlataformRoute, 'moduleId'>[] = [
