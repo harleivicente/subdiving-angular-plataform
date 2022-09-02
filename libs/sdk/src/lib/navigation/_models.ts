@@ -24,6 +24,7 @@ export interface PlataformModule {
     id: PLATAFORM_MODULE_ID;
     applicationId: PLATAFORM_APPLICATION_ID;
     url: string;
+    label: string;
     initials: string;
     themeColor: string;
 }
@@ -35,6 +36,8 @@ export interface PlataformRoute {
 }
 
 export const CurrentApplicationId = new InjectionToken<PLATAFORM_APPLICATION_ID>('Current Application ID');
+
+export const CurrentModuleId = new InjectionToken<PLATAFORM_MODULE_ID>('Current Module ID');
 
 
 

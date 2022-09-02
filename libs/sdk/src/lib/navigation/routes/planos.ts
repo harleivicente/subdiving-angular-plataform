@@ -9,11 +9,11 @@ export enum PLANOS_MODULE_ROUTE_ID {
 const routes: Omit<PlataformRoute, 'moduleId'>[] = [
     {
         id: PLANOS_MODULE_ROUTE_ID.LISTA_PLANOS,
-        url: 'planos/lista'
+        url: 'lista'
     },
     {
         id: PLANOS_MODULE_ROUTE_ID.CADASTRO_PLANO,
-        url: 'planos/criar'
+        url: 'criar'
     },
 ];
 
