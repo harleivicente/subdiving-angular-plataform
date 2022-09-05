@@ -24,11 +24,11 @@ import { WodCriarComponent } from './wod-criar/wod-criar.component';
         children: [
           {
             path: '',
-            redirectTo: 'wods',
+            redirectTo: 'wods/lista',
             pathMatch: 'full'
           },
           {
-            path: 'wods',
+            path: 'wods/lista',
             component: WodListaComponent
           },
           {

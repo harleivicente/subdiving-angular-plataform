@@ -32,6 +32,7 @@ export interface PlataformModule {
 export interface PlataformRoute {
     id: PLATAFORM_ROUTE_ID;
     moduleId: PLATAFORM_MODULE_ID;
+    label: string;
     url: Route;
 }
 

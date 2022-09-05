@@ -10,11 +10,13 @@ export enum CROSSFIT_MODULE_ROUTE_ID {
 const routes: Omit<PlataformRoute, 'moduleId'>[] = [
     {
         id: CROSSFIT_MODULE_ROUTE_ID.LISTA_WOD,
-        url: 'wods'
+        url: 'wods/lista',
+        label: 'WODS'
     },
     {
         id: CROSSFIT_MODULE_ROUTE_ID.CRIAR_WOD,
-        url: 'wods/criar'
+        url: 'wods/criar',
+        label: 'Criar WOD'
     }
 ];
 

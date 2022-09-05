@@ -10,11 +10,13 @@ export enum TREINO_MODULE_ROUTE_ID {
 const routes: Omit<PlataformRoute, 'moduleId'>[] = [
     {
         id: TREINO_MODULE_ROUTE_ID.LISTA_FICHAS_TREINO,
-        url: 'fichas/lista'
+        url: 'fichas/lista',
+        label: 'Lista de Fichas'
     },
     {
         id: TREINO_MODULE_ROUTE_ID.CRIAR_FICHA_TREINO,
-        url: 'fichas/criar'
+        url: 'fichas/criar',
+        label: 'Criar ficha'
     }
 ];
 

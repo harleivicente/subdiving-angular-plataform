@@ -57,13 +57,24 @@
 }
 
 
-
-
+// Context Menu
+//
 .context-menu {
     background-color: #444;
     flex-shrink: 0;
     width: 150px;
 }
+
+.public-route {
+    display: block;
+    text-decoration: none;
+    color: #fff;
+    text-align: left;
+    margin: 20px 0px;
+    padding: 0px 15px;
+}
+
+
 
 .content {
     padding: 25px;

@@ -1,6 +1,7 @@
 import { Component, Input, OnInit } from '@angular/core';
 import { plataformModules, PLATAFORM_MODULE_ID } from '../navigation/modules';
 import { NavigationService } from '../navigation/navigation.service';
+import { publicPlataformRoutesByModule } from '../navigation/routes';
 
 @Component({
   selector: 'sdk-main-layout',
@@ -16,6 +17,10 @@ export class MainLayoutComponent implements OnInit {
 
   get currentModule() {
     return this.navigationService.getPlatformModule(this.moduleId);
+  }
+
+  get moduleRoutes() {
+    return publicPlataformRoutesByModule.get(this.moduleId);
   }
 
   constructor(protected navigationService: NavigationService) {}

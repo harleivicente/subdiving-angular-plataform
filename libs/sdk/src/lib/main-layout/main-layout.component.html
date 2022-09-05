@@ -20,6 +20,10 @@
     </div>
     
     <div class="context-menu">
+
+        <a *ngFor="let item of moduleRoutes" class="public-route" [sdkRouter]="item.id">
+            {{ item.label }}
+        </a>
     
     </div>
     

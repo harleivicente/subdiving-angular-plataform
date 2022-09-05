@@ -2,7 +2,7 @@ import { NgModule } from '@angular/core';
 import { CommonModule } from '@angular/common';
 import { RouterModule } from '@angular/router';
 import { HomeComponent } from './home/home.component';
-import { CurrentModuleId, PLATAFORM_MODULE_ID, SdkModule } from '@pacto/sdk';
+import { SdkModule } from '@pacto/sdk';
 import { RootComponent } from './root/root.component';
 import { FichaListaComponent } from './ficha-lista/ficha-lista.component';
 import { FichaCriarComponent } from './ficha-criar/ficha-criar.component';
@@ -24,14 +24,15 @@ import { FichaCriarComponent } from './ficha-criar/ficha-criar.component';
         children: [
           {
             path: '',
-            redirectTo: 'ficha/lista'
+            redirectTo: 'fichas/lista',
+            pathMatch: 'full'
           },
           {
-            path: 'ficha/lista',
+            path: 'fichas/lista',
             component: FichaListaComponent
           },
           {
-            path: 'ficha/criar',
+            path: 'fichas/criar',
             component: FichaCriarComponent
           }
         ]

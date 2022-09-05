@@ -9,11 +9,13 @@ export enum ADM_MODULE_ROUTE_ID {
 const routes: Omit<PlataformRoute, 'moduleId'>[] = [
     {
         id: ADM_MODULE_ROUTE_ID.LISTA_UNIDADES,
-        url: 'unidades/lista'
+        url: 'unidades/lista',
+        label: 'Unidades'
     },
     {
         id: ADM_MODULE_ROUTE_ID.CRIAR_UNIDADE,
-        url: 'unidades/criar'
+        url: 'unidades/criar',
+        label: 'Criar Unidade'
     },
 ];
 
