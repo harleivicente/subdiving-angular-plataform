@@ -4,11 +4,15 @@ import { RouterModule } from '@angular/router';
 import { HomeComponent } from './home/home.component';
 import { CurrentModuleId, PLATAFORM_MODULE_ID, SdkModule } from '@pacto/sdk';
 import { RootComponent } from './root/root.component';
+import { FichaListaComponent } from './ficha-lista/ficha-lista.component';
+import { FichaCriarComponent } from './ficha-criar/ficha-criar.component';
 
 @NgModule({
   declarations: [
     HomeComponent,
-    RootComponent
+    RootComponent,
+    FichaListaComponent,
+    FichaCriarComponent
   ],
   imports: [
     SdkModule,
@@ -20,7 +24,15 @@ import { RootComponent } from './root/root.component';
         children: [
           {
             path: '',
-            component: HomeComponent
+            redirectTo: 'ficha/lista'
+          },
+          {
+            path: 'ficha/lista',
+            component: FichaListaComponent
+          },
+          {
+            path: 'ficha/criar',
+            component: FichaCriarComponent
           }
         ]
       }

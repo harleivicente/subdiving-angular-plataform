@@ -4,6 +4,7 @@ import { NgModule } from '@angular/core';
 import { AppComponent } from './app.component';
 import { CurrentApplicationId, PLATAFORM_APPLICATION_ID, SdkModule } from '@pacto/sdk';
 import { RouterModule } from '@angular/router';
+import { CrossfitModule } from './crossfit/crossfit.module';
 
 @NgModule({
   declarations: [AppComponent],
@@ -17,13 +18,14 @@ import { RouterModule } from '@angular/router';
       },
       {
         path: 'crossfit',
-        children: []
+        loadChildren: () => import('./crossfit/crossfit.module').then(module => module.CrossfitModule)
       },
       {
         path: '**',
         redirectTo: 'treino'
       },
     ]),
+    CrossfitModule,
   ],
   providers: [
     { provide: CurrentApplicationId, useValue: PLATAFORM_APPLICATION_ID.TREINO_APP }
