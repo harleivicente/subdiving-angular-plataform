@@ -4,6 +4,7 @@ import { ReactiveFormsModule } from '@angular/forms';
 import { RouteLinkDirective } from './navigation/route-link.directive';
 import { MainLayoutComponent } from './main-layout/main-layout.component';
 import { GlobalSearchComponent } from './global-search/global-search.component';
+import { LoginComponent } from './login/login.component';
 
 @NgModule({
   imports: [
@@ -13,7 +14,8 @@ import { GlobalSearchComponent } from './global-search/global-search.component';
   declarations: [
     RouteLinkDirective,
     MainLayoutComponent,
-    GlobalSearchComponent
+    GlobalSearchComponent,
+    LoginComponent
   ],
   exports: [
     RouteLinkDirective,

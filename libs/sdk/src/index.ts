@@ -8,3 +8,5 @@ export * from './lib/navigation/_models';
 export * from './lib/navigation/navigation.service';
 export * from './lib/navigation/route-link.directive';
 export * from './lib/main-layout/main-layout.component';
+export * from './lib/is-logged.guard';
+export * from './lib/login/login.component';
