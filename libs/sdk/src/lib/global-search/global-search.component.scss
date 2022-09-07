@@ -1,0 +1,48 @@
+
+:host {
+    display: block;
+}
+
+input {
+    line-height: 22px;
+    width: 350px;
+}
+
+.dropdown-pivot {
+    position: relative;
+}
+
+.dropdown-container {
+    position: absolute;
+    left: 0px;
+    right: 0px;
+    top: 28px;
+    background-color: rgb(245, 245, 245);
+    border: 1px solid #999;
+    border-radius: 4px;
+}
+
+
+.route {
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    text-decoration: none;
+    color: #000;
+    height: 40px;
+    padding: 3px 5px;
+
+    &:hover {
+        background-color: #eee;
+    }
+}
+
+.module-icon {
+    width: 30px;
+    height: 30px;
+    border-radius: 15px;
+    line-height: 30px;
+    color: #fff;
+    text-align: center;
+    margin-right: 8px;
+}

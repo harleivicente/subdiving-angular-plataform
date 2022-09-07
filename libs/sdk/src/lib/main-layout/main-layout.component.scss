@@ -16,7 +16,9 @@
     .title  {
         font-size: 20px;
         color: #fff;
-        margin-left: 50px;
+        flex-basis: 175px;
+        padding-left: 50px;
+        flex-shrink: 0;
     }
 }
 

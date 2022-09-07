@@ -43,6 +43,6 @@ export const plataformModules: PlataformModule[] = [
         url: 'planos',
         label: 'Planos',
         initials: 'Pl',
-        themeColor: '816'
+        themeColor: '#816'
     },
 ];

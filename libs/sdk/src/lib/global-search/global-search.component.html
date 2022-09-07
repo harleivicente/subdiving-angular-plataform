@@ -1,0 +1,24 @@
+
+
+
+<div class="dropdown-pivot">
+
+    <input [formControl]="filterFormControl" type="text" placeholder="Busca por funcionalidade">
+
+    <div class="dropdown-container" *ngIf="showDropdown">
+
+
+        <a class="route" *ngFor="let route of filteredRoutes" [sdkRouter]="route.id" (click)="routeClick()">
+
+            <div
+                [ngStyle]="{ backgroundColor: getPlataformModule(route.id).themeColor }" 
+                class="module-icon"> Tr </div>
+
+            {{ route.label }}
+
+        </a>
+
+
+    </div>
+
+</div>
