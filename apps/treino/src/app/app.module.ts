@@ -2,9 +2,10 @@ import { BrowserModule } from '@angular/platform-browser';
 import { NgModule } from '@angular/core';
 
 import { AppComponent } from './app.component';
-import { CurrentApplicationId, IsLoggedGuard, LoginComponent, LoginUrl, PLATAFORM_APPLICATION_ID, SdkModule } from '@pacto/sdk';
+import { AppStateService, CurrentApplicationId, IsLoggedGuard, LoginComponent, LoginUrl, PLATAFORM_APPLICATION_ID, SdkModule } from '@pacto/sdk';
 import { RouterModule } from '@angular/router';
 import { CrossfitModule } from './crossfit/crossfit.module';
+import { TreinoStateService } from './treino-state.service';
 
 @NgModule({
   declarations: [AppComponent],
@@ -38,8 +39,9 @@ import { CrossfitModule } from './crossfit/crossfit.module';
     CrossfitModule,
   ],
   providers: [
+    { provide: LoginUrl, useValue: 'login' },
     { provide: CurrentApplicationId, useValue: PLATAFORM_APPLICATION_ID.TREINO_APP },
-    { provide: LoginUrl, useValue: 'login' }
+    { provide: AppStateService, useExisting: TreinoStateService }
   ],
   bootstrap: [AppComponent]
 })

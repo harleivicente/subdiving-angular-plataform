@@ -1,4 +1,6 @@
 import { Component, OnInit } from '@angular/core';
+import { AppState, AppStateService } from '@pacto/sdk';
+import { TreinoStateService } from '../../treino-state.service';
 
 @Component({
   selector: 'treino-ficha-criar',
@@ -7,9 +9,10 @@ import { Component, OnInit } from '@angular/core';
 })
 export class FichaCriarComponent implements OnInit {
 
-  constructor() { }
+  constructor(protected state: TreinoStateService) { }
 
   ngOnInit() {
+    console.log(this.state);
   }
 
 }

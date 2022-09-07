@@ -1,0 +1,19 @@
+
+
+:host {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    height: 100vh;
+}
+
+button {
+    background-color: rgb(52, 111, 206);
+    line-height: 40px;
+    border-radius: 4px;
+    width: 100px;
+    color: #fff;
+    font-size: 18px;
+    border: 1px solid rgb(41, 87, 161);
+    cursor: pointer;
+}

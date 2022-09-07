@@ -20,28 +20,32 @@ export interface LoginInput {
 })
 export class AppStateService {
 
-  private state: AppState = {
+  private _state: AppState = {
     isInitialized: false,
     isLoggedIn: false
   };
 
+  get state() {
+    return this._state;
+  }
+
   get isLoggedIn() {
-    return this.state.isLoggedIn;
+    return this._state.isLoggedIn;
   }
 
   get isInitialized() {
-    return this.state.isInitialized;
+    return this._state.isInitialized;
   }
 
   public logIn(input: LoginInput) {
-    this.state.isLoggedIn = true;
-    this.state.enterpriseId = input.enterpriseId;  
-    this.state.userId = input.userId;  
-    this.state.token = input.token;  
+    this._state.isLoggedIn = true;
+    this._state.enterpriseId = input.enterpriseId;  
+    this._state.userId = input.userId;  
+    this._state.token = input.token;  
   }
 
   public initializeApp(): Observable<boolean> {
-    this.state.isInitialized = true;
+    this._state.isInitialized = true;
     return of(true);
   }
 
