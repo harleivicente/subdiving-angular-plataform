@@ -2,7 +2,16 @@ import { BrowserModule } from '@angular/platform-browser';
 import { NgModule } from '@angular/core';
 
 import { AppComponent } from './app.component';
-import { AppStateService, CurrentApplicationId, IsInitializedGuard, IsLoggedGuard, LoginComponent, LoginUrl, PLATAFORM_APPLICATION_ID, SdkModule } from '@pacto/sdk';
+import { 
+  AppStateService,
+  CurrentApplicationId,
+  IsInitializedGuard,
+  IsLoggedGuard,
+  LoginComponent,
+  LoginUrl,
+  PLATAFORM_APPLICATION_ID,
+  SdkModule
+} from '@pacto/sdk';
 import { RouterModule } from '@angular/router';
 import { TreinoStateService } from './treino-state.service';
 

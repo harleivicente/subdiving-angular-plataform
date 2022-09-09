@@ -10,7 +10,7 @@ export class IsInitializedGuard implements CanActivateChild {
   constructor(private appState: AppStateService) {}
 
   async canActivateChild(): Promise<boolean> {
-    await this.appState.initialize();
+    await this.appState.initializeIfNeeded();
     return true;
   }
   

@@ -5,7 +5,7 @@ import { AppState, AppStateLocalStorage, LoginInput, LoginUrl } from './model';
 @Injectable({
   providedIn: 'root'
 })
-export class AppStateService {
+export abstract class AppStateService {
   private localStorageKey = "pactoAppState";
 
   private _state: AppState = {
@@ -36,10 +36,13 @@ export class AppStateService {
     return true;
   }
 
-  public async initialize() {
+  public async initializeIfNeeded() {
     if (this._state.isInitialized) return;
-    await this.initializeApp();
+    await this.initialize();
+    this._state.isInitialized = true;
   }
+
+  public abstract initialize(): Promise<void>;
 
   public logIn(input: LoginInput) {
     this._state.isLoggedIn = true;
@@ -69,16 +72,6 @@ export class AppStateService {
         this.router.navigateByUrl(this.loginUrl);
       }
     }
-  }
-
-  public initializeApp(): Promise<boolean> {
-    this._state.isInitialized = true;
-    return new Promise(resolve => {
-      console.log('initializing...');
-      setTimeout(() => {
-        resolve(true);
-      }, 1000);
-    });
   }
 
   private persistStateInLocalStorage(state: AppStateLocalStorage) {
