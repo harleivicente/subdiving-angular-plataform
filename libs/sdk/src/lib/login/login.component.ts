@@ -1,6 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { Router } from '@angular/router';
-import { AppStateService } from '../app-state.service';
+import { AppStateService } from '../app-state/app-state.service';
 
 @Component({
   selector: 'sdk-login',

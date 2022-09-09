@@ -1,5 +1,5 @@
 import { Component, Input, OnInit } from '@angular/core';
-import { AppState, AppStateService } from '../app-state.service';
+import { AppStateService } from '../app-state/app-state.service';
 import { plataformModules, PLATAFORM_MODULE_ID } from '../navigation/modules';
 import { NavigationService } from '../navigation/navigation.service';
 import { publicPlataformRoutesByModule } from '../navigation/routes';

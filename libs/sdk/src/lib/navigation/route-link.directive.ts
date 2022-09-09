@@ -2,7 +2,7 @@ import { Directive, ElementRef, HostListener, Input, OnInit } from '@angular/cor
 import { Router } from '@angular/router';
 import { PLATAFORM_MODULE_ID } from './modules';
 import { NavigationService, PlataformUrl } from './navigation.service';
-import { PlataformRoute, PLATAFORM_ROUTE_ID } from './_models';
+import { PLATAFORM_ROUTE_ID } from './_models';
 
 @Directive({
   selector: 'a[sdkRouter], a[sdkModuleRouter]'

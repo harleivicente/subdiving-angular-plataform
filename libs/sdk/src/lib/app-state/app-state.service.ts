@@ -1,28 +1,6 @@
-import { Inject, Injectable, InjectionToken } from '@angular/core';
+import { Inject, Injectable } from '@angular/core';
 import { Router } from '@angular/router';
-import { Observable, of } from 'rxjs';
-
-export const LoginUrl = new InjectionToken<string>('Url to redirect to if user is not logged in');
-
-export interface AppState {
-  isLoggedIn: boolean;
-  isInitialized: boolean;
-  enterpriseId?: number;
-  userId?: number;
-  token?: string;
-}
-
-export interface AppStateLocalStorage {
-  enterpriseId: number;
-  userId: number;
-  token: string;
-}
-
-export interface LoginInput {
-  enterpriseId: number;
-  userId: number;
-  token: string;
-}
+import { AppState, AppStateLocalStorage, LoginInput, LoginUrl } from './model';
 
 @Injectable({
   providedIn: 'root'
@@ -37,10 +15,6 @@ export class AppStateService {
 
   get state() {
     return this._state;
-  }
-
-  get isInitialized() {
-    return this._state.isInitialized;
   }
 
   constructor(
@@ -60,6 +34,11 @@ export class AppStateService {
 
     this.logIn(loginState);
     return true;
+  }
+
+  public async initialize() {
+    if (this._state.isInitialized) return;
+    await this.initializeApp();
   }
 
   public logIn(input: LoginInput) {
@@ -92,9 +71,14 @@ export class AppStateService {
     }
   }
 
-  public initializeApp(): Observable<boolean> {
+  public initializeApp(): Promise<boolean> {
     this._state.isInitialized = true;
-    return of(true);
+    return new Promise(resolve => {
+      console.log('initializing...');
+      setTimeout(() => {
+        resolve(true);
+      }, 1000);
+    });
   }
 
   private persistStateInLocalStorage(state: AppStateLocalStorage) {

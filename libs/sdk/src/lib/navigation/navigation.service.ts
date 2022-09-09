@@ -1,4 +1,4 @@
-import { Inject, Injectable, Optional } from '@angular/core';
+import { Inject, Injectable } from '@angular/core';
 import { plataformApplications, PLATAFORM_APPLICATION_ID } from './applications';
 import { plataformModules, PLATAFORM_MODULE_ID } from './modules';
 import { publicPlataformRoutes } from './routes';
