@@ -19,11 +19,18 @@ export class GlobalSearchComponent implements OnInit {
 
   ngOnInit() {
     this.filterFormControl.valueChanges.subscribe(value => {
-      this.filteredRoutes = publicPlataformRoutes.filter(item => {
-        return item.label.toLowerCase().includes(`${value}`.toLowerCase());
-      });
-      this.showDropdown = true;
+      this.filterRoutes(value);
     });
+  }
+
+  private filterRoutes(searchTerm: string) {
+    this.filteredRoutes = publicPlataformRoutes.filter(item => {
+      const sanitizedTerm = searchTerm.toLowerCase();
+      const sanitizedLabel = item.label.toLowerCase();
+      const match = sanitizedLabel.includes(sanitizedTerm);
+      return match;
+    });
+    this.showDropdown = true;
   }
 
   protected getPlataformModule(routeId: PLATAFORM_ROUTE_ID) {
