@@ -12,9 +12,6 @@ export type PLATAFORM_ROUTE_ID = ADM_MODULE_ROUTE_ID
 | CROSSFIT_MODULE_ROUTE_ID
 | PLANOS_MODULE_ROUTE_ID
 | TREINO_MODULE_ROUTE_ID;
-
-type Route = (() => string) | string;
-
 export interface PlataformApplication {
     id: PLATAFORM_APPLICATION_ID;
     deployUrl: string;
@@ -33,7 +30,7 @@ export interface PlataformRoute {
     id: PLATAFORM_ROUTE_ID;
     moduleId: PLATAFORM_MODULE_ID;
     label: string;
-    url: Route;
+    url: string;
 }
 
 export const CurrentApplicationId = new InjectionToken<PLATAFORM_APPLICATION_ID>('Current Application ID');
