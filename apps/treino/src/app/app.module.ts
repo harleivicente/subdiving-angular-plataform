@@ -19,8 +19,13 @@ import { TreinoStateService } from './treino-state.service';
       },
       {
         path: '',
-        canActivate: [IsLoggedGuard],
+        canActivateChild: [IsLoggedGuard],
         children: [
+          {
+            path: '',
+            redirectTo: 'treino',
+            pathMatch: 'full'
+          },
           {
             path: 'treino',
             loadChildren: () => import('./treino/treino.module').then(module => module.TreinoModule),
@@ -28,15 +33,10 @@ import { TreinoStateService } from './treino-state.service';
           {
             path: 'crossfit',
             loadChildren: () => import('./crossfit/crossfit.module').then(module => module.CrossfitModule)
-          },
-          {
-            path: '**',
-            redirectTo: 'treino'
-          },
+          }
         ]
       },
-    ]),
-    CrossfitModule,
+    ])
   ],
   providers: [
     { provide: LoginUrl, useValue: 'login' },

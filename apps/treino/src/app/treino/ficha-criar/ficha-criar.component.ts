@@ -11,8 +11,6 @@ export class FichaCriarComponent implements OnInit {
 
   constructor(protected state: TreinoStateService) { }
 
-  ngOnInit() {
-    console.log(this.state);
-  }
+  ngOnInit() {}
 
 }

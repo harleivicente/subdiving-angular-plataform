@@ -1,14 +1,12 @@
 import { Inject, Injectable, InjectionToken } from '@angular/core';
-import { CanActivate, ActivatedRouteSnapshot, RouterStateSnapshot, UrlTree, Router } from '@angular/router';
+import { CanActivateChild, ActivatedRouteSnapshot, RouterStateSnapshot, UrlTree, Router } from '@angular/router';
 import { Observable } from 'rxjs';
-import { AppStateService } from './app-state.service';
-
-export const LoginUrl = new InjectionToken<string>('Url to redirect to if user is not logged in');
+import { AppStateService, LoginUrl } from './app-state.service';
 
 @Injectable({
   providedIn: 'root'
 })
-export class IsLoggedGuard implements CanActivate {
+export class IsLoggedGuard implements CanActivateChild {
 
   constructor(
     private state: AppStateService,
@@ -16,11 +14,11 @@ export class IsLoggedGuard implements CanActivate {
     @Inject(LoginUrl) private loginUrl: string
   ) {}
 
-  canActivate( 
+  canActivateChild( 
     next: ActivatedRouteSnapshot,
     state: RouterStateSnapshot
-  ): Observable<boolean | UrlTree> | Promise<boolean | UrlTree> | boolean | UrlTree {
-      const canActivate = this.state.isLoggedIn;
+  ): boolean | UrlTree {
+    const canActivate = this.state.isLoggedIn();
 
       if (canActivate) {
         return true;

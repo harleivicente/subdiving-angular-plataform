@@ -1,4 +1,5 @@
 import { Component, Input, OnInit } from '@angular/core';
+import { AppState, AppStateService } from '../app-state.service';
 import { plataformModules, PLATAFORM_MODULE_ID } from '../navigation/modules';
 import { NavigationService } from '../navigation/navigation.service';
 import { publicPlataformRoutesByModule } from '../navigation/routes';
@@ -23,7 +24,14 @@ export class MainLayoutComponent implements OnInit {
     return publicPlataformRoutesByModule.get(this.moduleId);
   }
 
-  constructor(protected navigationService: NavigationService) {}
+  constructor(
+    protected navigationService: NavigationService,
+    private appState: AppStateService
+  ) {}
+
+  logoutHandler() {
+    this.appState.logout();
+  }
 
   ngOnInit() {}
 

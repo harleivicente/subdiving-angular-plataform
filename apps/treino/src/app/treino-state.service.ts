@@ -8,7 +8,6 @@ import { Observable } from 'rxjs';
 export class TreinoStateService extends AppStateService {
 
   public logIn(input: LoginInput): void {
-    console.log('FUCCKKKK IT')
     super.logIn(input);
   }
 
