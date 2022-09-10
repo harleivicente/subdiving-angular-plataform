@@ -1,8 +1,15 @@
 import { Component, OnInit } from '@angular/core';
 import { FormControl } from '@angular/forms';
+import { PLATAFORM_MODULE_ID } from '../navigation/modules';
 import { NavigationService } from '../navigation/navigation.service';
 import { plataformRoutes } from '../navigation/routes';
-import { ModuleRoutes, PlataformRoute, PlataformRoutes, StaticPlatformRoute } from '../navigation/_models';
+import { ModuleRoutes, PlataformRoutes, StaticPlatformRoute } from '../navigation/_models';
+
+
+interface FilteredStaticRoute {
+  route: StaticPlatformRoute,
+  moduleId: PLATAFORM_MODULE_ID
+}
 
 @Component({
   selector: 'sdk-global-search',
@@ -14,33 +21,48 @@ export class GlobalSearchComponent implements OnInit {
   constructor(private navigationService: NavigationService) {}
 
   protected filterFormControl: FormControl = new FormControl();
-  protected filteredRoutes: StaticPlatformRoute[] = [];
+  protected filteredRoutes: FilteredStaticRoute[] = [];
   protected showDropdown = false;
 
   ngOnInit() {
     this.filterFormControl.valueChanges.subscribe((value: string) => {
       const sanitizedQuery = value.trim();
       if (!sanitizedQuery) return;
-      this.filteredRoutes = this.filterStaticRoutes(plataformRoutes as PlataformRoutes, sanitizedQuery);
+      this.filteredRoutes = this.filterRoutes(plataformRoutes as PlataformRoutes, sanitizedQuery);
       this.showDropdown = true;
     });
   }
 
-  private filterStaticRoutes(routes: PlataformRoutes, searchQuery: string): StaticPlatformRoute[] {
+  private filterRoutes(routes: PlataformRoutes, searchQuery: string): FilteredStaticRoute[] {
     let matchedRoutes = [];
-    Object.entries(routes).forEach(([, moduleRoutes]) => {
-      const filteredModuleRoutes = this.filterStaticRoutesInModule(moduleRoutes, searchQuery);
-      matchedRoutes = matchedRoutes.concat(filteredModuleRoutes);
+    Object.entries(routes).forEach(([moduleId, moduleRoutes]) => {
+      
+      const filteredRoutes = this.filterModuleRoutes(
+        moduleId as PLATAFORM_MODULE_ID,
+        moduleRoutes,
+        searchQuery
+      );
+
+      matchedRoutes = matchedRoutes.concat(filteredRoutes);
     });
     return matchedRoutes;
   }
 
-  private filterStaticRoutesInModule(moduleRoutes: ModuleRoutes, searchQuery: string): StaticPlatformRoute[] {
+  private filterModuleRoutes(moduleId: PLATAFORM_MODULE_ID, moduleRoutes: ModuleRoutes, searchQuery: string): FilteredStaticRoute[] {
     return Object.entries(moduleRoutes)
-    .filter(([,route]) => {
-      return this.doesRouteMatch(route.label, searchQuery) && !route.isDynamic
+    .filter(entry => {
+      const [, route] = entry;
+      const searchQueryMatch = this.doesRouteMatch(route.label, searchQuery);
+      const isStatic = !route.isDynamic;
+      return searchQueryMatch && isStatic;
     })
-    .map(([,route]) => route) as StaticPlatformRoute[];
+    .map(entry => {
+      const [, route] = entry;
+      return { 
+        route: route as StaticPlatformRoute,
+        moduleId
+      };
+    });
   };
 
   private doesRouteMatch(label: string, searchQuery: string): boolean {

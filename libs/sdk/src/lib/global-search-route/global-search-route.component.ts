@@ -1,5 +1,6 @@
 import { Component, OnInit, Input, Inject } from '@angular/core';
 import { PLATAFORM_APPLICATION_ID } from '../navigation/applications';
+import { PLATAFORM_MODULE_ID } from '../navigation/modules';
 import { NavigationService } from '../navigation/navigation.service';
 import { CurrentApplicationId, PlataformApplication, PlataformModule, StaticPlatformRoute } from '../navigation/_models';
 
@@ -10,6 +11,8 @@ import { CurrentApplicationId, PlataformApplication, PlataformModule, StaticPlat
 })
 export class GlobalSearchRouteComponent implements OnInit {
   @Input() staticRoute: StaticPlatformRoute;
+  @Input() moduleId: PLATAFORM_MODULE_ID;
+
   protected module: PlataformModule;
   protected application: PlataformApplication;
 
@@ -19,8 +22,7 @@ export class GlobalSearchRouteComponent implements OnInit {
   ) {}
 
   ngOnInit() {
-    const moduleId = this.staticRoute.moduleId;
-    this.module = this.navigation.getPlatformModule(moduleId);
+    this.module = this.navigation.getPlatformModule(this.moduleId);
     this.application = this.navigation.getPlataformApplication(this.module.applicationId);
   }
 

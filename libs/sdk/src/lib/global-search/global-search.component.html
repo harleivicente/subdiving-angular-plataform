@@ -7,8 +7,12 @@
 
     <div class="dropdown-container" *ngIf="showDropdown">
 
-        <ng-container *ngFor="let route of filteredRoutes">
-            <sdk-global-search-route (click)="routeClick()" [staticRoute]="route"></sdk-global-search-route>
+        <ng-container *ngFor="let filteredRoute of filteredRoutes">
+            <sdk-global-search-route 
+                [staticRoute]="filteredRoute.route"
+                [moduleId]="filteredRoute.moduleId"
+                (click)="routeClick()"
+            ></sdk-global-search-route>
         </ng-container>
 
     </div>
