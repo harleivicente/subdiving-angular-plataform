@@ -3,11 +3,11 @@ import { FormControl } from '@angular/forms';
 import { PLATAFORM_MODULE_ID } from '../navigation/modules';
 import { NavigationService } from '../navigation/navigation.service';
 import { plataformRoutes } from '../navigation/routes';
-import { ModuleRoutes, PlataformRoutes, StaticPlatformRoute } from '../navigation/_models';
+import { ModuleRoutes, PlataformRoute, PlataformRoutes,  } from '../navigation/_models';
 
 
 interface FilteredStaticRoute {
-  route: StaticPlatformRoute,
+  route: PlataformRoute,
   moduleId: PLATAFORM_MODULE_ID
 }
 
@@ -50,30 +50,15 @@ export class GlobalSearchComponent implements OnInit {
 
   private filterModuleRoutes(moduleId: PLATAFORM_MODULE_ID, moduleRoutes: ModuleRoutes, searchQuery: string): FilteredStaticRoute[] {
     return Object.entries(moduleRoutes)
-    .filter(entry => {
-      const [, route] = entry;
-      const searchQueryMatch = this.doesRouteMatch(route.label, searchQuery);
-      const isStatic = !route.isDynamic;
-      return searchQueryMatch && isStatic;
-    })
-    .map(entry => {
-      const [, route] = entry;
-      return { 
-        route: route as StaticPlatformRoute,
-        moduleId
-      };
-    });
+    .filter(entry => this.doesRouteMatch(entry[1], searchQuery))
+    .map(entry => ({ route: entry[1], moduleId }))
   };
 
-  private doesRouteMatch(label: string, searchQuery: string): boolean {
+  private doesRouteMatch(route: PlataformRoute, searchQuery: string): boolean {
       const sanitizedQuery = searchQuery.toLowerCase();
-      const sanitizedLabel = label.toLowerCase();
-      const match = sanitizedLabel.includes(sanitizedQuery);
-      return match;
-  }
-
-  protected getPlataformModule(moduleId) {
-    return this.navigationService.getPlatformModule(moduleId);
+      const sanitizedLabel = route.label.toLowerCase();
+      const textMatch = sanitizedLabel.includes(sanitizedQuery);
+      return textMatch && !route.isDynamic;
   }
 
   protected routeClick() {

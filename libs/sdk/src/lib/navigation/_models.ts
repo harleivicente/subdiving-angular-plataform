@@ -24,20 +24,16 @@ export interface PlataformModule {
 
 export const CurrentModuleId = new InjectionToken<PLATAFORM_MODULE_ID>('Current Module ID');
 
-
 // 
 // Route models 
 //
-export interface PlataformRoute<T> {
+export interface PlataformRoute {
     label: string;
     isDynamic?: boolean,
-    url: T
+    url: (...args: number[]) => string
 }
 
-export interface StaticPlatformRoute extends PlataformRoute<() => string> {}
-
-export interface DynamicPlatformRoute extends PlataformRoute<(any) => string> {}
-
-export interface ModuleRoutes { [key: string]: PlataformRoute<(any) => string> };
+export interface ModuleRoutes { [key: string]: PlataformRoute };
 
 export interface PlataformRoutes { [moduleId: string]: ModuleRoutes };
+

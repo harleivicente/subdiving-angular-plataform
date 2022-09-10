@@ -2,7 +2,7 @@ import { Component, OnInit, Input, Inject } from '@angular/core';
 import { PLATAFORM_APPLICATION_ID } from '../navigation/applications';
 import { PLATAFORM_MODULE_ID } from '../navigation/modules';
 import { NavigationService } from '../navigation/navigation.service';
-import { CurrentApplicationId, PlataformApplication, PlataformModule, StaticPlatformRoute } from '../navigation/_models';
+import { CurrentApplicationId, PlataformApplication, PlataformModule, PlataformRoute } from '../navigation/_models';
 
 @Component({
   selector: 'sdk-global-search-route',
@@ -10,7 +10,7 @@ import { CurrentApplicationId, PlataformApplication, PlataformModule, StaticPlat
   styleUrls: ['./global-search-route.component.scss']
 })
 export class GlobalSearchRouteComponent implements OnInit {
-  @Input() staticRoute: StaticPlatformRoute;
+  @Input() staticRoute: PlataformRoute;
   @Input() moduleId: PLATAFORM_MODULE_ID;
 
   protected module: PlataformModule;
