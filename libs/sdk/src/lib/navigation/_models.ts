@@ -28,7 +28,7 @@ export const CurrentModuleId = new InjectionToken<PLATAFORM_MODULE_ID>('Current 
 // Route models 
 //
 export interface PlataformRoute {
-    label: string;
+    label?: string;
     isDynamic?: boolean,
     url: (...args: number[]) => string
 }

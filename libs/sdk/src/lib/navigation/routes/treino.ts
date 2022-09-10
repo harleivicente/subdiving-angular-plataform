@@ -1,9 +1,6 @@
-import { PLATAFORM_MODULE_ID } from "../modules";
-
-
 const fichaRoutes = {
     LISTA_FICHAS_TREINO: {
-        url: () => '/treino/fichas/lista',
+        url: () => '/treino/fichas/lista', 
         label: 'Lista de Fichas',
     },
     CRIAR_FICHA_TREINO: {
@@ -23,7 +20,6 @@ const aparelhoRoutes = {
         label: 'Aparelhos',
     }
 };
-
 
 export const treinoRoutes = {
     ...fichaRoutes,

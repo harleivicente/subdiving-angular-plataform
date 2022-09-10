@@ -1,6 +1,5 @@
 import { Injectable } from '@angular/core';
-import { AppStateService, LoginInput } from '@pacto/sdk';
-import { Observable } from 'rxjs';
+import { AppStateService } from '@pacto/sdk';
 
 @Injectable({
   providedIn: 'root'
