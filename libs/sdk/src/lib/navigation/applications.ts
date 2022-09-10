@@ -15,3 +15,6 @@ export const plataformApplications: PlataformApplication[] = [
         deployUrl: 'http://localhost:4201',
     }
 ];
+
+
+
