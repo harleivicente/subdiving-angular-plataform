@@ -1,5 +1,4 @@
 import { Component, OnInit } from '@angular/core';
-import { publicPlataformRoutes, publicPlataformRoutesByModule } from '@pacto/sdk';
 
 @Component({
   selector: 'treino-ficha-lista',

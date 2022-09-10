@@ -1,0 +1,25 @@
+
+
+
+<!-- Internal route -->
+<a class="route" [routerLink]="staticRoute.url()" *ngIf="isInternal()">
+
+    <div
+        [ngStyle]="{ backgroundColor: module?.themeColor }" 
+        class="module-icon"> {{ module?.initials }} </div>
+
+    {{ staticRoute.label }}
+
+</a>
+
+
+<!-- External route -->
+<a class="route" *ngIf="!isInternal()" href="{{ getExternalLink() }}">
+
+    <div
+        [ngStyle]="{ backgroundColor: module?.themeColor }" 
+        class="module-icon"> {{ module?.initials }} </div>
+
+    {{ staticRoute.label }}
+
+</a>

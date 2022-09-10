@@ -1,0 +1,24 @@
+
+.route {
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    text-decoration: none;
+    color: #000;
+    height: 40px;
+    padding: 3px 5px;
+
+    &:hover {
+        background-color: #eee;
+    }
+}
+
+.module-icon {
+    width: 30px;
+    height: 30px;
+    border-radius: 15px;
+    line-height: 30px;
+    color: #fff;
+    text-align: center;
+    margin-right: 8px;
+}

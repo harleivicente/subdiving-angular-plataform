@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+import { plataformRoutes } from '@pacto/sdk';
 
 @Component({
   selector: 'treino-wod-criar',
@@ -9,7 +10,12 @@ export class WodCriarComponent implements OnInit {
 
   constructor() { }
 
-  ngOnInit() {
+  ngOnInit() {}
+  
+  get fichasAlunoLink() {
+    return plataformRoutes.TREINO.FICHAS_DO_ALUNO.url(3);
   }
+
+
 
 }

@@ -1,22 +1,18 @@
 import { PLATAFORM_MODULE_ID } from './modules';
 import { PLATAFORM_APPLICATION_ID } from './applications';
-import { 
-    ADM_MODULE_ROUTE_ID,
-    CROSSFIT_MODULE_ROUTE_ID,
-    PLANOS_MODULE_ROUTE_ID,
-    TREINO_MODULE_ROUTE_ID
-} from './routes';
 import { InjectionToken } from '@angular/core';
 
-export type PLATAFORM_ROUTE_ID = ADM_MODULE_ROUTE_ID
-| CROSSFIT_MODULE_ROUTE_ID
-| PLANOS_MODULE_ROUTE_ID
-| TREINO_MODULE_ROUTE_ID;
+// Application Model
 export interface PlataformApplication {
     id: PLATAFORM_APPLICATION_ID;
     deployUrl: string;
 }
 
+export const CurrentApplicationId = new InjectionToken<PLATAFORM_APPLICATION_ID>('Current Application ID');
+
+
+
+// Module Model
 export interface PlataformModule {
     id: PLATAFORM_MODULE_ID;
     applicationId: PLATAFORM_APPLICATION_ID;
@@ -26,17 +22,24 @@ export interface PlataformModule {
     themeColor: string;
 }
 
-export interface PlataformRoute {
-    id: PLATAFORM_ROUTE_ID;
-    moduleId: PLATAFORM_MODULE_ID;
-    label: string;
-    url: string;
-}
-
-export const CurrentApplicationId = new InjectionToken<PLATAFORM_APPLICATION_ID>('Current Application ID');
-
 export const CurrentModuleId = new InjectionToken<PLATAFORM_MODULE_ID>('Current Module ID');
 
 
 
+// 
+// Route models 
+//
+export interface PlataformRoute<T> {
+    label: string;
+    moduleId: PLATAFORM_MODULE_ID,
+    isDynamic?: boolean,
+    url: T
+}
 
+export interface StaticPlatformRoute extends PlataformRoute<() => string> {}
+
+export interface DynamicPlatformRoute extends PlataformRoute<(any) => string> {}
+
+export interface ModuleRoutes { [key: string]: PlataformRoute<(any) => string> };
+
+export interface PlataformRoutes { [key: string]: ModuleRoutes };

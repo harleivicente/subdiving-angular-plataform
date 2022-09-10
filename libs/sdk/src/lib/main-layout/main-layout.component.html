@@ -5,6 +5,8 @@
 
     <sdk-global-search></sdk-global-search>
 
+    <div class="spacer"></div>
+
     <button class="logout" (click)="logoutHandler()"> Logout </button>
 
 </div>
@@ -13,21 +15,42 @@
 <div class="body-container">
 
     <div class="taskbar">
-        <a 
-            [sdkModuleRouter]="item.id"
-            *ngFor="let item of plataformModules"
-            [ngStyle]="{ backgroundColor: item.themeColor }" 
-            class="module"
-        >
-            {{ item.initials }}
-        </a>
+
+        <ng-container *ngFor="let module of plataformModules">
+
+            <!-- Internal Module -->
+            <a 
+                *ngIf="isInternalModule(module)"
+                [routerLink]="module.url"
+                [ngStyle]="{ backgroundColor: module.themeColor }" 
+                class="module"
+            >
+                {{ module.initials }}
+            </a>
+
+            <!-- External Module -->
+            <a 
+                *ngIf="!isInternalModule(module)"
+                [href]="getExternalUrl(module)"
+                [ngStyle]="{ backgroundColor: module.themeColor }" 
+                class="module"
+            >
+                {{ module.initials }}
+            </a>
+
+        </ng-container>
 
     </div>
     
     <div class="context-menu">
 
-        <a *ngFor="let item of moduleRoutes" class="public-route" [sdkRouter]="item.id">
-            {{ item.label }}
+        <!-- Internal Routes -->
+        <a 
+            *ngFor="let route of staticModuleRoutes"
+            class="public-route"
+            [routerLink]="route.url()"
+        >
+            {{ route.label }}
         </a>
     
     </div>

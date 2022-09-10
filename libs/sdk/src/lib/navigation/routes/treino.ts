@@ -1,29 +1,36 @@
 import { PLATAFORM_MODULE_ID } from "../modules";
-import { PlataformRoute } from "../_models";
 
 
-export enum TREINO_MODULE_ROUTE_ID {
-    LISTA_FICHAS_TREINO = 'LISTA_FICHAS_TREINO',
-    CRIAR_FICHA_TREINO = 'CRIAR_FICHA_TREINO'
-}
-
-const routes: Omit<PlataformRoute, 'moduleId'>[] = [
-    {
-        id: TREINO_MODULE_ROUTE_ID.LISTA_FICHAS_TREINO,
-        url: 'fichas/lista',
-        label: 'Lista de Fichas'
+const fichaRoutes = {
+    LISTA_FICHAS_TREINO: {
+        url: () => '/treino/fichas/lista',
+        label: 'Lista de Fichas',
+        moduleId: PLATAFORM_MODULE_ID.TREINO
     },
-    {
-        id: TREINO_MODULE_ROUTE_ID.CRIAR_FICHA_TREINO,
-        url: 'fichas/criar',
-        label: 'Criar ficha'
+    CRIAR_FICHA_TREINO: {
+        url: () => '/treino/fichas/criar',
+        label: 'Criar ficha',
+        moduleId: PLATAFORM_MODULE_ID.TREINO
+    },
+    FICHAS_DO_ALUNO: {
+        url: (alunoId: number) => `/treino/fichas/aluno/${alunoId}`,
+        label: 'Fichas do Aluno',
+        isDynamic: true,
+        moduleId: PLATAFORM_MODULE_ID.TREINO
     }
-];
+};
+
+const aparelhoRoutes = {
+    APARELHO_LISTA: {
+        url: () => `/treino/aparelhos`,
+        label: 'Aparelhos',
+        moduleId: PLATAFORM_MODULE_ID.TREINO
+    }
+};
 
 
-export const treinoRoutes: PlataformRoute[] = routes.map(item => {
-    return {
-        ...item,
-        moduleId: PLATAFORM_MODULE_ID.TREINO 
-    };
-})
+export const treinoRoutes = {
+    ...fichaRoutes,
+    ...aparelhoRoutes
+};
+

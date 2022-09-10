@@ -7,17 +7,9 @@
 
     <div class="dropdown-container" *ngIf="showDropdown">
 
-
-        <a class="route" *ngFor="let route of filteredRoutes" [sdkRouter]="route.id" (click)="routeClick()">
-
-            <div
-                [ngStyle]="{ backgroundColor: getPlataformModule(route.id).themeColor }" 
-                class="module-icon"> Tr </div>
-
-            {{ route.label }}
-
-        </a>
-
+        <ng-container *ngFor="let route of filteredRoutes">
+            <sdk-global-search-route (click)="routeClick()" [staticRoute]="route"></sdk-global-search-route>
+        </ng-container>
 
     </div>
 
