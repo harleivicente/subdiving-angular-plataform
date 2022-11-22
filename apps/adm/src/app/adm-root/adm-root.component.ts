@@ -2,15 +2,16 @@ import { Component, OnInit } from '@angular/core';
 import { PLATAFORM_MODULE_ID } from '@pacto/sdk';
 
 @Component({
-  selector: 'treino-root',
-  templateUrl: './root.component.html',
-  styleUrls: ['./root.component.scss']
+  selector: 'pacto-subdividing-platform-adm-root',
+  templateUrl: './adm-root.component.html',
+  styleUrls: ['./adm-root.component.scss']
 })
-export class RootComponent implements OnInit {
+export class AdmRootComponent implements OnInit {
 
   constructor() { }
 
-  ngOnInit() { }
+  ngOnInit() {
+  }
 
   get PLATAFORM_MODULE_ID() {
     return PLATAFORM_MODULE_ID;

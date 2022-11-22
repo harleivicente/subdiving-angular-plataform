@@ -1,6 +1,8 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, Inject, OnInit } from '@angular/core';
 import { Router } from '@angular/router';
+
 import { AppStateService } from '../app-state/app-state.service';
+import { RedirectAfterLoginUrl } from '../app-state/model';
 
 @Component({
   selector: 'sdk-login',
@@ -11,8 +13,9 @@ export class LoginComponent implements OnInit {
 
   constructor(
     private appState: AppStateService,
-    private router: Router
-  ) { }
+    private router: Router,
+    @Inject(RedirectAfterLoginUrl) private redirectAfterLoginUrl: string
+  ) {}
 
   ngOnInit() {}
 
@@ -22,7 +25,7 @@ export class LoginComponent implements OnInit {
       token: 'ADF3ADFADF234ADFADF',
       userId: 2
     })
-    this.router.navigate(['treino', 'fichas', 'lista'])
+    this.router.navigateByUrl(this.redirectAfterLoginUrl);
   }
 
 }

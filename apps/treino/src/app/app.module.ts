@@ -10,6 +10,7 @@ import {
   LoginComponent,
   LoginUrl,
   PLATAFORM_APPLICATION_ID,
+  RedirectAfterLoginUrl,
   SdkModule
 } from '@pacto/sdk';
 import { RouterModule } from '@angular/router';
@@ -48,6 +49,7 @@ import { TreinoStateService } from './treino-state.service';
   ],
   providers: [
     { provide: LoginUrl, useValue: 'login' },
+    { provide: RedirectAfterLoginUrl, useValue: '/treino' },
     { provide: CurrentApplicationId, useValue: PLATAFORM_APPLICATION_ID.TREINO_APP },
     { provide: AppStateService, useExisting: TreinoStateService }
   ],

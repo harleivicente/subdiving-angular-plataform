@@ -7,18 +7,18 @@ const fichaRoutes = {
         url: () => '/treino/fichas/criar',
         label: 'Criar ficha',
     },
-    FICHAS_DO_ALUNO: {
-        url: (alunoId: number) => `/treino/fichas/aluno/${alunoId}`,
-        label: 'Fichas do Aluno',
-        isDynamic: true,
-    }
+    // FICHAS_DO_ALUNO: {
+    //     url: (alunoId: number) => `/treino/fichas/aluno/${alunoId}`,
+    //     label: 'Fichas do Aluno',
+    //     isDynamic: true,
+    // }
 };
 
 const aparelhoRoutes = {
-    APARELHO_LISTA: {
-        url: () => `/treino/aparelhos`,
-        label: 'Aparelhos',
-    }
+    // APARELHO_LISTA: {
+    //     url: () => `/treino/aparelhos`,
+    //     label: 'Aparelhos',
+    // }
 };
 
 export const treinoRoutes = {

@@ -20,6 +20,13 @@
     },
     "sdk": {
       "tags": []
+    },
+    "adm": {
+      "tags": []
+    },
+    "adm-e2e": {
+      "tags": [],
+      "implicitDependencies": ["adm"]
     }
   }
 }
