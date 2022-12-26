@@ -13,7 +13,7 @@ export class WodCriarComponent implements OnInit {
   ngOnInit() {}
   
   get fichasAlunoLink() {
-    return plataformRoutes.TREINO.FICHAS_DO_ALUNO.url(3);
+    return ``;
   }
 
 
